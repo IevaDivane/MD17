@@ -1,0 +1,24 @@
+.button{
+  background-color: #0FAEC550;
+  color: #7FFF0050;
+  border-radius: 20px;
+  &:hover{
+    color: chartreuse;
+  }
+}
+.box--characters{
+  border: 1px solid chartreuse;
+  padding: 40px;
+  width: 25%;
+  display: grid;
+  justify-content: center;
+}
+.box--image{
+  width: 100px;
+  margin-left: 25%;
+}
+.box--all{
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
