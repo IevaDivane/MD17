@@ -22,3 +22,30 @@
   padding: 20px;
   flex-wrap: wrap;
 }
+.buttons{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.btn{
+  display: grid;
+  padding: 10px 20px;
+  color: rgba(15, 174, 197, 0.95);
+  border-radius: 10px;
+  &:hover{
+    color: chartreuse;
+  }
+
+}
+.btn--all{
+  background-color: rgba(127, 255, 0, 0.14);
+}
+.btn--dead{
+  background-color: #f96e4d;
+}
+.btn--alive{
+  background-color: darkolivegreen;
+}
+.btn--unknown{
+  background-color: grey;
+}

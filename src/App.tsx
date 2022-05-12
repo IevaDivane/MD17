@@ -11,24 +11,22 @@ import CharacterPage from './Pages/Character/CharacterPage';
 import Error from './Pages/Errors/error';
 import EpisodesPage from './Pages/Episodes/EpisodesPage';
 import EpisodePage from './Pages/Episode/EpisodePage';
+import LocationsPage from './Pages/Locations/LocationsPage';
+import LocationPage from './Pages/Location/LocationPage';
+import Header from './Components/Header/Header';
 
 const App = () => (
   <div className="App">
     <Router>
-      <header className="header">
-        <nav className="header--links">
-          <NavLink className="link" to="/">Home </NavLink>
-          <NavLink className="link" to="/characters">Characters </NavLink>
-          <NavLink className="link" to="/episodes">Episodes </NavLink>
-          <NavLink className="link" to="/about">About </NavLink>
-        </nav>
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/characters" element={<CharactersPage />} />
-        <Route path="/character/:id" element={<CharacterPage />} />
+        <Route path="/characters/:id" element={<CharacterPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
-        <Route path="/episode/:id" element={<EpisodePage />} />
+        <Route path="/episodes/:id" element={<EpisodePage />} />
+        <Route path="/locations" element={<LocationsPage />} />
+        <Route path="/locations/:id" element={<LocationPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/404" element={<Error />} />
         <Route path="*" element={<Navigate to="/404" />} />

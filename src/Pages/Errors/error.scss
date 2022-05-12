@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  overflow: hidden;
+
 }
 
 .wrapper{
@@ -13,7 +13,7 @@ html {
   width: fit-content;
   text-align: center;
   z-index: 4;
-
+  overflow: hidden;
 
 
   span {

@@ -4,6 +4,17 @@
   gap:15px;
   color: #0FAEC5;
 }
-.box--character-image{
-width: 400px;
+.box--with-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.button-back-next{
+  max-height: 50px;
+  margin: 50px;
+  background-color: darkslategrey;
+  border-radius: 10px;
+  padding: 10px 20px;
+  &:hover {
+    color: chartreuse;
+  }
 }
