@@ -3,13 +3,16 @@
   background-color: black;
   color: chartreuse;
 }
+
 body{
   background-color: black;
 }
+
 .header--links{
   display: flex;
   justify-content: space-between;
 }
+
 .header{
   padding: 15px;
   border-bottom: 1px solid black;
@@ -25,6 +28,7 @@ body{
       opacity: 0.7;
     }
 }
+
 .link--active{
   color: #0FAEC5;
   font-weight: bold;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Episode } from '../Data/EpisodesData';
-import './episodePage.scss';
+import styles from './episodePage.module.scss';
 import Loader from '../../Components/Loader/Loader';
 
 const EpisodePage = () => {
@@ -17,7 +17,7 @@ const EpisodePage = () => {
       const response = await axios.get(`https://rickandmortyapi.com/api/episode/${id}`);
       setCurrentEpisode(response.data);
     } catch (error) {
-      navigate('/characters');
+      navigate('/episodes');
     } finally {
       setLoading(false);
     }
@@ -42,9 +42,9 @@ const EpisodePage = () => {
   return (
     <div>
       <h1>Something about episodes</h1>
-      <div className="box--with-buttons">
-        <button className="button-back-next" onClick={() => changeBackEpisode()}>prev</button>
-        <div className="box--character">
+      <div className={styles.boxWithButtons}>
+        <button className={styles.buttonBackNext} onClick={() => changeBackEpisode()}>prev</button>
+        <div className={styles.boxEpisode}>
           <span>
             This episode nami is
             {' '}
@@ -70,7 +70,7 @@ const EpisodePage = () => {
           </span>
           <button className="button" onClick={() => navigate('/episodes')}>Back to all episodes</button>
         </div>
-        <button className="button-back-next" onClick={() => changeNextEpisode()}>next</button>
+        <button className={styles.buttonBackNext} onClick={() => changeNextEpisode()}>next</button>
       </div>
       {loading && <Loader />}
     </div>

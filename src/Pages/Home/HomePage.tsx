@@ -1,8 +1,8 @@
 import React from 'react';
-import './home.scss';
+import styles from './home.module.scss';
 
 const HomePage = () => (
-  <div className="box--home">
+  <div className={styles.boxHome}>
     <h1> Home</h1>
   </div>
 );

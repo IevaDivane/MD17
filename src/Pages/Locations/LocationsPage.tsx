@@ -12,7 +12,6 @@ const LocationsPage = () => {
   const getLocations = async () => {
     try {
       const response = await axios.get('https://rickandmortyapi.com/api/location/');
-      // await var vairākus taisīt šajā gadījumā const response2 = await ..., const response3 = await ..
       setLocations(response.data.results);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -21,9 +20,6 @@ const LocationsPage = () => {
       } else {
         setErrorMessage(' Not Axios ');
       }
-    } finally {
-      // isLoading = false;
-      console.log('beigas');
     }
   };
 

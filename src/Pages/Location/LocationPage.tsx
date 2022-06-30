@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { LocationResults, Location } from '../../Models/LocationModels';
 import Loader from '../../Components/Loader/Loader';
-import './locationPage.scss';
+import styles from './locationPage.module.scss';
 
 const LocationPage = () => {
   const [location, setLocation] = useState<LocationResults>();
@@ -42,9 +42,9 @@ const LocationPage = () => {
   return (
     <div>
       <h1>Something about location</h1>
-      <div className="box--with-buttons">
-        <button className="button-back-next" onClick={() => changeBackLocation()}>next</button>
-        <div className="box--location">
+      <div className={styles.boxWithButtons}>
+        <button className={styles.buttonBackNext} onClick={() => changeBackLocation()}>next</button>
+        <div className={styles.boxLocation}>
           <span>
             ID:
             {' '}
@@ -66,7 +66,7 @@ const LocationPage = () => {
           </span>
           <button className="button" onClick={() => navigate('/locations')}>Back to all locations</button>
         </div>
-        <button className="button-back-next" onClick={() => changeNextLocation()}>next</button>
+        <button className={styles.buttonBackNext} onClick={() => changeNextLocation()}>next</button>
       </div>
       {loading && <Loader />}
     </div>

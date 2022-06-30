@@ -1,20 +1,22 @@
-.box--character{
+.boxLocation{
   display: grid;
   justify-content: center;
   gap:15px;
   color: #0FAEC5;
 }
-.box--with-buttons{
-  display: flex;
-  justify-content: space-between;
-}
-.button-back-next{
+
+.buttonBackNext{
   max-height: 50px;
   margin: 50px;
   background-color: darkslategrey;
   border-radius: 10px;
   padding: 10px 20px;
-  &:hover {
-    color: chartreuse;
-  }
+    &:hover {
+      color: chartreuse;
+    }
+}
+
+.boxWithButtons{
+  display: flex;
+  justify-content: space-between;
 }

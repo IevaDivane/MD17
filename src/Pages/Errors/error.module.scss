@@ -1,6 +1,5 @@
 html {
   height: 100%;
-
 }
 
 .wrapper{
@@ -14,7 +13,6 @@ html {
   text-align: center;
   z-index: 4;
   overflow: hidden;
-
 
   span {
     &:first-letter{
@@ -61,13 +59,10 @@ html {
   }
 }
 
-
 @keyframes spin {
-
   from {
     transform: rotate( 0deg );
   }
-
   to {
     transform: rotate( -360deg );
   }
@@ -83,7 +78,6 @@ html {
     opacity: 1;
   }
 }
-
 
 .space {
   position: absolute;

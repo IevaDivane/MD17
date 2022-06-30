@@ -1,0 +1,77 @@
+.button{
+  background-color: #0FAEC550;
+  color: #7FFF0050;
+  border-radius: 20px;
+    &:hover{
+      color: chartreuse;
+    }
+}
+
+.boxCharacters{
+  border: 1px solid chartreuse;
+  padding: 40px;
+  width: 25%;
+  display: grid;
+  justify-content: center;
+}
+
+.boxImage{
+  width: 100px;
+  margin-left: 25%;
+}
+
+.boxAll{
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.buttons{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btnAll{
+  background-color: rgba(127, 255, 0, 0.14);
+  display: grid;
+  padding: 10px 20px;
+  color: rgba(15, 174, 197, 0.95);
+  border-radius: 10px;
+    &:hover{
+      color: chartreuse;
+    }
+}
+
+.btnDead{
+  background-color: #f96e4d;
+  display: grid;
+  padding: 10px 20px;
+  color: rgba(15, 174, 197, 0.95);
+  border-radius: 10px;
+    &:hover{
+      color: chartreuse;
+    }
+}
+
+.btnAlive{
+  background-color: darkolivegreen;
+  display: grid;
+  padding: 10px 20px;
+  color: rgba(15, 174, 197, 0.95);
+  border-radius: 10px;
+    &:hover{
+      color: chartreuse;
+    }
+}
+
+.btnUnknown{
+  background-color: grey;
+  display: grid;
+  padding: 10px 20px;
+  color: rgba(15, 174, 197, 0.95);
+  border-radius: 10px;
+    &:hover{
+      color: chartreuse;
+    }
+}

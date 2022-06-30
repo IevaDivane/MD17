@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as
-  Router, Routes, Route, NavLink, Navigate,
+  Router, Routes, Route, Navigate,
 } from 'react-router-dom';
 import './App.scss';
 import HomePage from './Pages/Home/HomePage';

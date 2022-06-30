@@ -1,14 +1,14 @@
 import React from 'react';
-import './error.scss';
 import { Outlet, useNavigate } from 'react-router-dom';
+import styles from './error.module.scss';
 
 const Error = () => {
   const navigate = useNavigate();
   return (
-    <div className="background-img">
-      <div className="space" />
-      <div className="wrapper">
-        <div className="img-wrapper">
+    <div>
+      <div className={styles.space} />
+      <div className={styles.wrapper}>
+        <div>
           <span>44</span>
         </div>
         <button type="button" onClick={() => navigate('/')}>GET ME HOME</button>

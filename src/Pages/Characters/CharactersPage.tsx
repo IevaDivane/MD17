@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Character, CharacterResults } from '../../Models/CharactersModels';
-import './charactersPage.scss';
+import { CharacterResults } from '../../Models/CharactersModels';
+import styles from './charactersPage.module.scss';
 
 const CharactersPage = () => {
   const [characters, setCharacters] = useState<CharacterResults[]>();
@@ -22,8 +22,6 @@ const CharactersPage = () => {
       } else {
         setErrorMessage('Not Axios Error');
       }
-    } finally {
-      console.log('BEIGAS');
     }
   };
 
@@ -32,27 +30,27 @@ const CharactersPage = () => {
   }, [activeFilter]);
 
   const getColor = (status:string) => {
-    const notAliveColor = status === 'Dead' ? 'red' : 'grey';
-    return status === 'Alive' ? 'green' : notAliveColor;
+    const notAliveColor = status === 'Dead' ? '#FF00002C' : '#80808068';
+    return status === 'Alive' ? '#00800073' : notAliveColor;
   };
 
   return (
     <div>
       <h1>All Characters</h1>
-      <div className="buttons">
-        <button type="button" className=" btn btn--all" onClick={() => setActiveFilter('all')}>All</button>
-        <button type="button" className="btn btn--dead" onClick={() => setActiveFilter('dead')}>Dead</button>
-        <button type="button" className="btn btn--alive" onClick={() => setActiveFilter('alive')}>Alive</button>
-        <button type="button" className="btn btn--unknown" onClick={() => setActiveFilter('unknown')}>Unknown</button>
+      <div className={styles.buttons}>
+        <button type="button" className={styles.btnAll} onClick={() => setActiveFilter('all')}>All</button>
+        <button type="button" className={styles.btnDead} onClick={() => setActiveFilter('dead')}>Dead</button>
+        <button type="button" className={styles.btnAlive} onClick={() => setActiveFilter('alive')}>Alive</button>
+        <button type="button" className={styles.btnUnknown} onClick={() => setActiveFilter('unknown')}>Unknown</button>
       </div>
       <div className="container">
-        <div className="box--all">
+        <div className={styles.boxAll}>
           {characters && characters.map(({
             id, name, image, status,
           }) => (
-            <div key={id} className="box--characters" style={{ backgroundColor: getColor(status) }}>
+            <div key={id} className={styles.boxCharacters} style={{ backgroundColor: getColor(status) }}>
               {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={image} alt="characters-image" className="box--image" />
+              <img src={image} alt="characters-image" className={styles.boxImage} />
               <span>
                 {' '}
                 ID:
@@ -66,7 +64,7 @@ const CharactersPage = () => {
                 {name}
                 {' '}
               </span>
-              <button className="button" onClick={() => navigate(`/characters/${id}`)}>Read More</button>
+              <button className={styles.button} onClick={() => navigate(`/characters/${id}`)}>Read More</button>
             </div>
           ))}
         </div>
@@ -78,7 +76,6 @@ const CharactersPage = () => {
         )}
       </div>
     </div>
-
   );
 };
 export default CharactersPage;

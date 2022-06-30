@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import characters, { Character } from '../Data/CharacterData';
-import './characterPage.scss';
+import { Character } from '../Data/CharacterData';
+import styles from './characterPage.module.scss';
 import Loader from '../../Components/Loader/Loader';
 
 const CharacterPage = () => {
@@ -10,7 +10,6 @@ const CharacterPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
-  const [activeFilter, setActiveFilter] = useState();
 
   const getCharacter = async () => {
     setLoading(true);
@@ -28,7 +27,7 @@ const CharacterPage = () => {
     if (id) {
       getCharacter().then();
     }
-  }, [activeFilter]);
+  }, []);
 
   const changeBackCharacter = () => {
     navigate(`/characters/${Number(id) - 1}`);
@@ -41,9 +40,9 @@ const CharacterPage = () => {
   return (
     <div>
       <h1>Something about character</h1>
-      <div className="box--with-buttons">
-        <button className="button-back-next" onClick={() => changeBackCharacter()}>prev</button>
-        <div className="box--character">
+      <div className={styles.boxWithButtons}>
+        <button className={styles.buttonBackNext} onClick={() => changeBackCharacter()}>prev</button>
+        <div className={styles.boxCharacter}>
           <span>
             This character name is
             {' '}
@@ -70,7 +69,7 @@ const CharacterPage = () => {
           <button className="button" onClick={() => navigate('/characters')}>Back to all characters</button>
 
         </div>
-        <button className="button-back-next" onClick={() => changeNextCharacter()}>next</button>
+        <button className={styles.buttonBackNext} onClick={() => changeNextCharacter()}>next</button>
       </div>
       {loading && <Loader />}
     </div>

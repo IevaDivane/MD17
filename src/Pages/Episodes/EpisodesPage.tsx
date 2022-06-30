@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { Episode } from '../Data/EpisodesData';
-import './episodesPage.scss';
+import styles from './episodesPage.module.scss';
 
 const EpisodesPage = () => {
   const [visibleEpisodes, setVisibleEpisodes] = useState<Episode[]>();
   const [errorMessage, setErrorMessage] = useState<string>();
-  const [activeFilter, setActiveFilter] = useState<string>('');
+  const [activeFilter, setActiveFilter] = useState('');
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const getEpisodes = async () => {
+    console.log(searchParams);
     const params = activeFilter === '' ? '' : `?name=${activeFilter}`;
     try {
       const response = await axios.get(`https://rickandmortyapi.com/api/episode/${params}`);
@@ -22,8 +24,6 @@ const EpisodesPage = () => {
       } else {
         setErrorMessage('Not Axios Error');
       }
-    } finally {
-      console.log('beigas');
     }
   };
 
@@ -46,10 +46,11 @@ const EpisodesPage = () => {
       <h1>All episodes</h1>
       <div>
         <input type="text" placeholder="Search by name" onChange={(e) => setActiveFilter(e.target.value)} />
+        <button onClick={() => setSearchParams({ name: activeFilter })}>Search</button>
       </div>
-      <div className="box--all">
+      <div className={styles.boxAll}>
         {visibleEpisodes && visibleEpisodes.map(({ id, name }) => (
-          <div key={Math.random()} className="box--characters">
+          <div key={id} className={styles.boxEpisodes}>
             <span>
               {' '}
               ID:
@@ -63,7 +64,7 @@ const EpisodesPage = () => {
               {name}
               {' '}
             </span>
-            <button className="button" onClick={() => navigate(`/episodes/${id}`)}>Read More</button>
+            <button className={styles.button} onClick={() => navigate(`/episodes/${id}`)}>Read More</button>
           </div>
         ))}
         { errorMessage && (
